@@ -52,7 +52,6 @@ class Router extends React.Component {
                   })
                 }
               }}
-                
               onClick={() =>
                 this.setState({
                   headline: 'zachary thielemann'
