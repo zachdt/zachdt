@@ -17,28 +17,134 @@ import Software from './Software'
 import Music from './Music'
 import Contact from './Contact'
 
-const Router = () => {
-  return (
-    <BrowserRouter>
-      <nav>
-      <Typography variant="h2" color="textPrimary" align="left">
-        <Link to="/">Zachary Thielemann</Link>
-      </Typography>
-      </nav>
-      <div>
-        <Link to="/software"><CodeIcon/></Link>
-        <Link to="/music"><MusicNoteIcon/></Link>
-        <Link to="/contact"><EmailIcon/></Link>
-      </div>
 
-      <Switch>
-        <Route exact path="/"><Landing /></Route>
-        <Route path="/software"><Software /></Route>
-        <Route path="/music"><Music /></Route>
-        <Route path="/contact"><Contact /></Route>
-      </Switch>
-    </BrowserRouter>
-  )
+class Router extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      headline: 'zachary thielemann'
+    }
+  }
+
+
+  render() {
+    let currentLocation = window.location.pathname
+
+    return (
+      <BrowserRouter>
+        <nav>
+          <Typography variant="h2" color="textPrimary" align="left">
+            <Link 
+              to="/"
+              onMouseOver={() => 
+                this.setState({
+                  headline: 'zachary thielemann'
+                })} 
+              onMouseOut={()  => {
+                if (currentLocation !== '/') {
+                  this.setState({
+                    headline: currentLocation.substr(1)
+                  })
+                } else {
+                  this.setState({
+                    headline: 'zachary thielemann'
+                  })
+                }
+              }}
+                
+              onClick={() =>
+                this.setState({
+                  headline: 'zachary thielemann'
+                })}
+            >{this.state.headline}</Link>
+          </Typography>
+        </nav>
+        <div>
+
+          <Link
+            to="/software"
+            onMouseOver={() => 
+              this.setState({
+                headline: 'software'
+              })} 
+            onMouseOut={()  => {
+              if (currentLocation !== '/') {
+                this.setState({
+                  headline: currentLocation.substr(1)
+                })
+              } else {
+                this.setState({
+                  headline: 'zachary thielemann'
+                })
+              }
+            }}
+            onClick={() => 
+              this.setState({
+                headline: 'software'
+              })}
+          >
+            <CodeIcon/>
+          </Link>
+
+          <Link 
+            to="/music"
+            onMouseOver={() => 
+              this.setState({
+                headline: 'music'
+              })} 
+            onMouseOut={()  => {
+              if (currentLocation !== '/') {
+                this.setState({
+                  headline: currentLocation.substr(1)
+                })
+              } else {
+                this.setState({
+                  headline: 'zachary thielemann'
+                })
+              }
+            }}
+            onClick={() => 
+              this.setState({
+                headline: 'music'
+              })}
+          >
+            <MusicNoteIcon/>
+          </Link>
+
+          <Link 
+            to="/contact"
+            onMouseOver={() => 
+              this.setState({
+                headline: 'contact'
+              })} 
+            onMouseOut={()  => {
+              if (currentLocation !== '/') {
+                this.setState({
+                  headline: currentLocation.substr(1)
+                })
+              } else {
+                this.setState({
+                  headline: 'zachary thielemann'
+                })
+              }
+            }}
+            onClick={() => 
+              this.setState({
+                headline: 'contact'
+              })}
+          ><EmailIcon/></Link>
+        </div>
+  
+        <Switch>
+          <Route exact path="/"><Landing /></Route>
+          <Route path="/software"><Software /></Route>
+          <Route path="/music"><Music /></Route>
+          <Route path="/contact"><Contact /></Route>
+        </Switch>
+      </BrowserRouter>
+    )
+  }
 }
 
 export default Router
