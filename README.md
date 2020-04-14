@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Zachary Thielemann's personal page
+## zachdt.com
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) in typescript mode. 
 
 ## Available Scripts
 
