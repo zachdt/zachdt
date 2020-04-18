@@ -1,5 +1,6 @@
+
 const styles = {
-  container:  {
+  root: {
     position: 'relative',
     backgroundColor: 'purple',
     height: '100vh',
@@ -15,4 +16,4 @@ const styles = {
   }
 }
 
-export default styles 
+export default styles
