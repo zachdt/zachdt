@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
       postArr.push([doc.id, doc.data()])
     });
     res.send(postArr)
-    res.send(`GET req sucessful <---`)
+    console.log(`GET req sucessful <---`)
   })
   .catch((err) => {
     console.log('--> ', err);
@@ -35,9 +35,14 @@ app.get('/:path', (req, res) => {
 
   db.collection('posts').doc(req.params.path).get()
   .then((doc) => {
-    console.log('-->', doc.id, ':', doc.data());
-    res.send(doc.data())
-    res.send(`GET req sucessful <---`)
+    if (!doc.exists) {
+      res.send(null)
+      console.log('--> post does not exist!')
+    } else {
+      console.log('-->', doc.id, ':', doc.data());
+      res.send(doc.data())
+      console.log(`GET req sucessful <---`)
+    }
   })
   .catch((err) => {
     console.log('--> ', err);
