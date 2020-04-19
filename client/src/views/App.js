@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from './views/layout/Layout'
+import Layout from './layout/Layout'
 
 function App() {
   return (
