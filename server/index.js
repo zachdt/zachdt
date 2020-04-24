@@ -67,8 +67,7 @@ app.post('/update/', (req, res) => {
     files.forEach(file => {
       let fileName = file.slice(0, -3)
       console.log('/ ' + fileName)
-      db.collection('posts').doc(fileName).set({
-          title: fileName.replace(/-|\s/g, " "),
+      db.collection('posts').doc(fileName).update({
           content: fs.readFileSync(postDir + '/' + file).toString()
         })
         .then(() => console.log('Updated Complete for ' + file))

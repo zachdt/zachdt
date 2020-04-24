@@ -10,7 +10,8 @@ const styles = {
   },
   paper: {
     padding: '1em',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    marign: '3em'
   },
   blogC: {
     marginTop: '2em'

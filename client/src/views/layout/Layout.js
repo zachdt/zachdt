@@ -19,14 +19,14 @@ const Layout = (props) => {
         <BrowserRouter>
           <Grid container direction='row' >
             <Grid item xs={12} sm={4} lg={4} container direction='column' alignItems='flex-start'>
-              <Grid item >
+              <Grid item>
                 <Navigation />
               </Grid>
               <Grid item>
                 <Footer />
               </Grid>
             </Grid>
-            <Grid item xs={12} sm={8} md={8} xl={6} className={classes.route}>
+            <Grid item xs={12} sm={8} md={8} xl={8} className={classes.route}>
               {props.children}
             </Grid>
           </Grid>
@@ -34,8 +34,6 @@ const Layout = (props) => {
       </div>
     </div>  
   )
-
-
 }
 
 export default Layout

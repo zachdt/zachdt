@@ -16,8 +16,7 @@ const About = () => {
   if (link) return <Redirect to={link}></Redirect>
   return (
     <div className={classes.about}>
-      <Grid container>
-        <Grid container item xs={12} md={6} spacing={2}>
+      <Grid container spacing={3}>
           <Grid item xs={12} sm={12}>
             <Typography>
               Work & Projects
@@ -47,15 +46,6 @@ const About = () => {
               </Grid>
             </Paper>
           </Grid>
-        </Grid>
-      
-        <Grid container item xs={12} md={6}>
-          <Grid item xs={12} className=''>
-            <Typography className={classes.edu}>
-              Education
-            </Typography>
-          </Grid>
-        </Grid>
       </Grid>
     </div>
   )
@@ -115,21 +105,22 @@ const Landing = () => {
         <Grid item xs={12} className={classes.recent}>
           <Typography variant='h6'>Recent Posts</Typography>
         </Grid>
-        {posts.map((obj) => {
-          return (
-            <div key={obj.id}>
-              <Grid item xs={12} md={6} lg={4}>
+        <Grid item container direction='row' spacing={4}>
+          {posts.map((obj) => {
+            return (
+              <Grid key={obj.id} item xs={12} sm={6} md={6}>
                 <Paper className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
                   <Typography variant='h6'>{obj.data.title}</Typography>
+                  <Typography variant='body2'>{Date(obj.data.date._seconds).toString()}</Typography>
                 </Paper>
               </Grid>
-            </div>
-          )
-        })}
+            )
+          })}
+        </Grid>
       </Grid>
     </div>
   )
-  if (!posts && !isLoading) return <div>nothing</div>
+  if (!posts && !isLoading) return <div>No posts.... hmmm</div>
   
 }
 

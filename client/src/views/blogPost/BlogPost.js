@@ -18,7 +18,7 @@ const BlogPost = () => {
   const [isLoading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [mark, setMark] = useState()
-
+  const [date, setDate] = useState()
 
   useEffect(() => {
     const getPost = async () => {
@@ -31,6 +31,7 @@ const BlogPost = () => {
         console.log(resp)
         setPost(resp)
         setMark(resp.content)
+        setDate(Date(resp.date._seconds))
         setLoading(false)
       }).catch(err => {
         console.log(err)
@@ -57,7 +58,8 @@ const BlogPost = () => {
 
   if (post) return (
     <div className={classes.root}>
-      <Grid item xs={12} md={6} lg={4}>
+      <Typography variant='body2'>{date}</Typography>
+      <Grid item xs={12} md={12} lg={12}>
         <ReactMarkdown
           source={mark}
           className={classes.md} />

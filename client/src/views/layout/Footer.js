@@ -20,17 +20,17 @@ const Footer = () => {
     <br/>
       <Grid container direction='row' alignItems='flex-start'>
         <Grid item>
-          <IconButton aria-label='twitter' target='__blank' href='https://twitter.com/blockchainmidwc'>
+          <IconButton aria-label='twitter' target='__blank' href='https://twitter.com/_zachdt'>
             <TwitterIcon className={classes.social}/>
           </IconButton>
         </Grid>
         <Grid item>
-          <IconButton aria-label='linkedin' target='_blank' href='https://www.linkedin.com/company/midwestblockchain/'>
+          <IconButton aria-label='linkedin' target='_blank' href='https://www.linkedin.com/in/zacharydavisthielemann/'>
             <LinkedInIcon className={classes.social}/>
           </IconButton>
         </Grid>
         <Grid item>
-          <IconButton aria-label='github' target='__blank' href='https://github.com/Midwest-Blockchain-Consoritum'>
+          <IconButton aria-label='github' target='__blank' href='https://github.com/zachdt'>
             <GitHubIcon className={classes.social}/>
           </IconButton>
         </Grid>
