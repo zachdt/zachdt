@@ -121,7 +121,6 @@ const Landing = () => {
               <Grid item xs={12} md={6} lg={4}>
                 <Paper className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
                   <Typography variant='h6'>{obj.data.title}</Typography>
-                  <Typography variant='body1'>{obj.data.date._seconds}</Typography>
                 </Paper>
               </Grid>
             </div>

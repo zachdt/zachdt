@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 
 import {Typography, Grid, CircularProgress} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
+import ReactMarkdown from 'react-markdown'
 
 import {withRouter, useParams, Redirect} from 'react-router-dom'
-import marked from 'marked'
 import styles from './styles/BlogPost'
 
 const useStyles = makeStyles(styles)
@@ -17,7 +17,6 @@ const BlogPost = () => {
   const [post, setPost] = useState()
   const [isLoading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [link, setLink] = useState()
   const [mark, setMark] = useState()
 
 
@@ -28,10 +27,10 @@ const BlogPost = () => {
       })
       .then(res => res.json())
       .then((resp) => {
-        if (!resp.title) console.log('weirrd')
+        if (!resp.title) console.log('Bad Req')
         console.log(resp)
         setPost(resp)
-        setMark(marked(resp.content))
+        setMark(resp.content)
         setLoading(false)
       }).catch(err => {
         console.log(err)
@@ -59,10 +58,10 @@ const BlogPost = () => {
   if (post) return (
     <div className={classes.root}>
       <Grid item xs={12} md={6} lg={4}>
-        <Typography variant='h6'>{post.title}</Typography>
-        <Typography variant='body1'>{post.date._seconds}</Typography>
+        <ReactMarkdown
+          source={mark}
+          className={classes.md} />
       </Grid>
-      <div dangerouslySetInnerHTML={{__html: mark}} />
     </div>
   )
   if (!post && !isLoading) return <div>nothing</div>

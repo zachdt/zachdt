@@ -2,7 +2,7 @@ import React from 'react'
 
 import {Typography, Grid} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
-import {withRouter} from 'react-router-dom'
+import {withRouter, BrowserRouter} from 'react-router-dom'
 
 import Navigation from './Navigation'
 import Footer from './Footer'
@@ -16,19 +16,21 @@ const Layout = (props) => {
   return (
     <div className={classes.root}>
       <div className={classes.page}>
-        <Grid container direction='row' >
-          <Grid item xs={12} sm={4} lg={4} container direction='column' alignItems='flex-start'>
-            <Grid item >
-              <Navigation />
+        <BrowserRouter>
+          <Grid container direction='row' >
+            <Grid item xs={12} sm={4} lg={4} container direction='column' alignItems='flex-start'>
+              <Grid item >
+                <Navigation />
+              </Grid>
+              <Grid item>
+                <Footer />
+              </Grid>
             </Grid>
-            <Grid item>
-              <Footer />
+            <Grid item xs={12} sm={8} md={8} xl={6} className={classes.route}>
+              {props.children}
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={8} md={8} xl={6} className={classes.route}>
-            {props.children}
-          </Grid>
-        </Grid>
+        </BrowserRouter>
       </div>
     </div>  
   )

@@ -7,12 +7,10 @@ import BlogPost from '../views/blogPost/BlogPost'
 
 const Routes = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={Landing}/>
-        <Route exact path='/:postID' component={BlogPost} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path='/' component={Landing}/>
+      <Route exact path='/:postID' component={BlogPost} />
+    </Switch>
   )
 }
 
