@@ -1,50 +1,87 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
-import {Typography, Backdrop, Grid, ButtonProps, Select, MenuItem, Button, Breadcrumbs, link} from '@material-ui/core'
+import {
+  AppBar, 
+  Typography, 
+  Backdrop, 
+  Grid, 
+  ButtonProps, 
+  Select, 
+  Paper, 
+  Button, 
+  Breadcrumbs, 
+  IconButton, 
+  Icon,
+  Toolbar,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from '@material-ui/core'
+import CodeIcon from '@material-ui/icons/Code';
+import AddIcon from '@material-ui/icons/Add'
+import {Route, BrowserRouter, Redirect} from 'react-router-dom'
+
 import {makeStyles} from '@material-ui/styles'
 
 import styles from './styles/Navigation'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 const useStyles = makeStyles(styles)
 
-const Navigator = (props) => {
-  const classes = useStyles()
+//BOILERPLATE HOOK FOR HOVER
+function useHover() {
+  const [value, setValue] = useState(false);
 
-  const [route, setRoute] = useState()
+  const ref = useRef(null);
 
-  useEffect(() => {
-    setRoute(props.path)  
-  }, [props.path])
+  const handleMouseOver = () => setValue(true);
+  const handleMouseOut = () => setValue(false);
 
-  if (props.path === '/') {
-    return (
-      <div>
-        <Grid container direction='row' justify='flex-start' alignItems='center' spacing={0} className={classes.container}>
-          <Grid item xs={12} md={3}>
-            <Typography variant='h4'>Zachary Thielemann</Typography>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <ArrowForwardIosIcon></ArrowForwardIosIcon>
-          </Grid>
-        </Grid>
-      </div>
-    )
-  }
-  return (
-    <div>
-      <Typography variant='h4' >Zachary Thielemann</Typography>
-    </div>
-  )
+  useEffect(
+    () => {
+      const node = ref.current;
+      if (node) {
+        node.addEventListener('mouseover', handleMouseOver);
+        node.addEventListener('mouseout', handleMouseOut);
+
+        return () => {
+          node.removeEventListener('mouseover', handleMouseOver);
+          node.removeEventListener('mouseout', handleMouseOut);
+        };
+      }
+    },
+    [ref.current] // Recall only if ref changes
+  );
+
+  return [ref, value];
 }
+///
 
 
 const Navigation = () => {
   const classes = useStyles()
+  const [link, setLink] = useState()
 
+  if (link && link !== '/') return (
+    <BrowserRouter>
+        <Redirect to={link}/>
+    </BrowserRouter>
+  )
   return (
-    <div>
+    <div className={classes.root}>
+     <BrowserRouter>
+        <Route render={({location}) => (
+          <div className={classes.toolbar}>
+            <Grid container direction='row' alignItems='center' spacing={3}>
+              <Grid item className={classes.title} onClick={() => setLink('/')}>
+                <Typography variant='h4'>zachary thielemann</Typography>
+              </Grid>
+            </Grid>
+          </div>
+        )} />
+      </BrowserRouter>
     </div>
+
   )
 }
 

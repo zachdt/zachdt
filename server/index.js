@@ -1,5 +1,6 @@
 const express = require('express')
 const Firestore = require('@google-cloud/firestore')
+const cors = require('cors')
 
 const db = new Firestore({
   projectId: 'zachdt',
@@ -8,9 +9,16 @@ const db = new Firestore({
 
 const app = express()
 
+
+app.use(cors())
+
+app.options('*', cors())
+
 //get all posts
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
   console.log('--> GET req for all blog posts')
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000/")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
   let postArr = []
 
@@ -18,7 +26,7 @@ app.get('/', (req, res) => {
   .then((snapshot) => {
     snapshot.forEach((doc) => {
       console.log('-->', doc.id, ':', doc.data());
-      postArr.push([doc.id, doc.data()])
+      postArr.push({id: doc.id, data: doc.data()})
     });
     res.send(postArr)
     console.log(`GET req sucessful <---`)
@@ -30,7 +38,7 @@ app.get('/', (req, res) => {
 
 
 //get a specific post
-app.get('/:path', (req, res) => {
+app.get('/api/:path', (req, res) => {
   console.log('--> GET req for post', req.params.path)
 
   db.collection('posts').doc(req.params.path).get()

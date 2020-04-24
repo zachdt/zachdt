@@ -1,6 +1,6 @@
 const styles = {
   root: {
-
+    padding: '1em'
   }
 }
 

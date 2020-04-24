@@ -6,12 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "gcloud builds submit --tag gcr.io/zachdt/blog-server",
+    "deploy": "gcloud run deploy --image gcr.io/zachdt/blog-server --platform managed"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@google-cloud/firestore": "^3.7.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {
