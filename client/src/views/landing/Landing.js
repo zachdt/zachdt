@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import {Typography, CircularProgress, Grid, Paper} from '@material-ui/core'
+import {Typography, CircularProgress, Grid, Paper, Button, IconButton} from '@material-ui/core'
 
 import {Redirect} from 'react-router-dom'
 
@@ -8,49 +8,6 @@ import {makeStyles} from '@material-ui/styles'
 import styles from './styles/Landing'
 
 const useStyles = makeStyles(styles)
-
-const About = () => {
-  const classes = useStyles()
-  const [link, setLink] = useState()
-
-  if (link) return <Redirect to={link}></Redirect>
-  return (
-    <div className={classes.about}>
-      <Grid container spacing={3}>
-          <Grid item xs={12} sm={12}>
-            <Typography>
-              Work & Projects
-            </Typography>
-          </Grid>
-          <Grid item xs={6} sm={6} className={classes.active}>
-            <Paper className={classes.paper} onClick={() => setLink(`/lease-otb`)}>
-              <Grid container>
-                <Grid item xs={3}>
-                  <img border='' className={classes.img} src='https://storage.googleapis.com/leaseotb-images/LOTB-Logo.png'/>
-                </Grid>
-                <Grid item>
-                  <Typography variant='body2'>Lease on the Block</Typography>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-          <Grid item xs={6} sm={6} className={classes.inactive}>
-            <Paper className={classes.paper} onClick={() => setLink(`/omni-labs`)}>
-              <Grid container>
-                <Grid item xs={3}>
-                  <img border='' className={classes.img} src='https://omniinc.com/icons/icon-72x72.png?v=b11026a9a33e92d6df22397e0cc18cce'/>
-                </Grid>
-                <Grid item>
-                  <Typography variant='body2'>Omni Labs</Typography>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-      </Grid>
-    </div>
-  )
-}
-
 
 const Landing = () => {
   const classes = useStyles()
@@ -60,6 +17,10 @@ const Landing = () => {
   const [error, setError] = useState(null)
   const [link, setLink] = useState()
 
+  const [tags, setTags] = useState([])
+  const [isTag, setIsTag] = useState(false)
+
+
   useEffect(() => {
     const getPosts = async () => {
       fetch('/api/', {
@@ -67,28 +28,43 @@ const Landing = () => {
       })
       .then(res => res.json())
       .then((post) => {
+        setLoading(false)
         if (!post.body) console.log('weirrd')
         console.log(post)
         setPosts(post)
-        setLoading(false)
       }).catch(err => {
+        setLoading(false)
         console.log(err)
         setError(err)
-        setLoading(false)
       })
     }
 
     getPosts()
   },[isLoading])
 
+  const addFilter = (id) => {
+    switch (id) {
+      case 'clear':
+        setTags([])
+        setIsTag(false)
+      default:
+        let arr = tags
+        arr = arr.push(id)
+        setTags(arr)
+        setIsTag(true)
+    }
+  }
 
-  if (isLoading || link) return (
+  if (isLoading) return (
     <div className={classes.root}>
-      <About/>
       <div className={classes.loadingC}>
-      <CircularProgress></CircularProgress>
-      <Redirect to={link}/>
+        <CircularProgress color='error'/>
       </div>
+    </div>
+  )
+  if (link) return (
+    <div className={classes.root}>
+      <Redirect to={link}/>
     </div>
   )
 
@@ -100,21 +76,44 @@ const Landing = () => {
 
   if (posts) return (
     <div className={classes.root}>
-      <About/>
-      <Grid container direction='row' alignItems='center' className={classes.blogC} spacing={1}>
-        <Grid item xs={12} className={classes.recent}>
-          <Typography variant='h6'>Recent Posts</Typography>
+      <Grid container spacing={3} direction='row' justify='flex-start' alignItems='center'>
+        <Grid item  className={classes.active}>
+          <div className={classes.filter} onClick={() => addFilter('lease-otb')}>
+            <img border='' className={classes.img} src='https://storage.googleapis.com/leaseotb-images/LOTB-Logo.png'/>
+          </div>
         </Grid>
+        <Grid item className={classes.inactive}>
+          <div className={classes.filter} onClick={() => addFilter('omni-labs')}>
+              <img border='' className={classes.img} src='https://omniinc.com/icons/icon-72x72.png?v=b11026a9a33e92d6df22397e0cc18cce'/>
+          </div>
+        </Grid>
+        {isTag ? 
+          <Grid item className={classes.clear}>
+            <div className={classes.filter} onClick={() => addFilter('clear')}>
+              <IconButton>
+                What
+              </IconButton>
+            </div>
+          </Grid>
+        :
+          null
+        }
+      </Grid>
+      <Grid container direction='row' alignItems='center' className={classes.blogC} spacing={1}>
         <Grid item container direction='row' spacing={4}>
           {posts.map((obj) => {
-            return (
-              <Grid key={obj.id} item xs={12} sm={6} md={6}>
-                <Paper className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
-                  <Typography variant='h6'>{obj.data.title}</Typography>
-                  <Typography variant='body2'>{Date(obj.data.date._seconds).toString()}</Typography>
-                </Paper>
-              </Grid>
-            )
+            for (let x = 0; x <= tags.length; x++){
+              if (tags[x] === obj.data.tag) {
+                return (
+                  <Grid key={obj.id} item xs={12} sm={6} md={6}>
+                    <Paper className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
+                      <Typography variant='h6'>{obj.data.title}</Typography>
+                      <Typography variant='body2'>{obj.data.date}</Typography>
+                    </Paper>
+                  </Grid>
+              )}
+            }
+          
           })}
         </Grid>
       </Grid>

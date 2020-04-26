@@ -1,4 +1,8 @@
 const styles = {
+  'route:empty': {
+    background: 'none',
+    
+  },
   root: {
   },
   page: {

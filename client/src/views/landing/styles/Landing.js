@@ -1,25 +1,25 @@
 const styles = {
+  '@keyframes in': {
+    
+  },
   root: {
     padding: '2em'
   },
   loadingC: {
     padding: '2em'
   },
-  about: {
-
-  },
   paper: {
     padding: '1em',
+    cursor: 'pointer'
+  },
+  filter: {
+    padding: '0em',
     cursor: 'pointer',
-    marign: '3em'
   },
   blogC: {
-    marginTop: '2em'
+    marginTop: '1em'
   },
   active: {
-  },
-  recent: {
-    marginBottom: '1em'
   },
   edu: {
     marginTop: '2em'

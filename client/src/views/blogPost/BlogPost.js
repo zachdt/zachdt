@@ -29,10 +29,12 @@ const BlogPost = () => {
       .then((resp) => {
         if (!resp.title) console.log('Bad Req')
         console.log(resp)
+        setLoading(false)
+
         setPost(resp)
         setMark(resp.content)
+
         setDate(Date(resp.date._seconds))
-        setLoading(false)
       }).catch(err => {
         console.log(err)
         setError(err)
@@ -41,18 +43,12 @@ const BlogPost = () => {
     }
 
     getPost()
-  },[isLoading])
+  },[])
 
 
-  if (isLoading || !post) return (
+  if (isLoading) return (
     <div className={classes.root}>
-      <CircularProgress></CircularProgress>
-    </div>
-  )
-
-  if (error) return (
-    <div className={classes.root}>
-      {error.body}
+      <CircularProgress color='error'></CircularProgress>
     </div>
   )
 
@@ -66,7 +62,7 @@ const BlogPost = () => {
       </Grid>
     </div>
   )
-  if (!post && !isLoading) return <div>nothing</div>
+  if (!post && !isLoading) return <div className={classes.root}>nothing</div>
 }
 
 export default BlogPost
