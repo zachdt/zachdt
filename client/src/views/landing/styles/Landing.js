@@ -3,7 +3,8 @@ const styles = {
     
   },
   root: {
-    padding: '2em'
+    padding: '2em',
+    borderRadius: '1em'
   },
   loadingC: {
     padding: '2em'

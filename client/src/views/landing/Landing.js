@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Typography, CircularProgress, Grid, Paper, Button, IconButton} from '@material-ui/core'
 
 import {Redirect} from 'react-router-dom'
+import CancelIcon from '@material-ui/icons/Cancel';
 
 import {makeStyles} from '@material-ui/styles'
 import styles from './styles/Landing'
@@ -17,9 +18,8 @@ const Landing = () => {
   const [error, setError] = useState(null)
   const [link, setLink] = useState()
 
-  const [tags, setTags] = useState([])
+  const [tag, setTag] = useState()
   const [isTag, setIsTag] = useState(false)
-
 
   useEffect(() => {
     const getPosts = async () => {
@@ -45,16 +45,25 @@ const Landing = () => {
   const addFilter = (id) => {
     switch (id) {
       case 'clear':
-        setTags([])
         setIsTag(false)
+        setTag(null)
+        break
       default:
-        let arr = tags
-        arr = arr.push(id)
-        setTags(arr)
+        setTag(id)
         setIsTag(true)
     }
   }
 
+  const tagChange = (id) => {
+    switch (id) {
+      case 'omni-labs':
+        return 'Omni Labs'
+      case 'lease-otb':
+        return 'Lease on the Block'
+      default:
+        return
+    }
+  }
   if (isLoading) return (
     <div className={classes.root}>
       <div className={classes.loadingC}>
@@ -76,7 +85,10 @@ const Landing = () => {
 
   if (posts) return (
     <div className={classes.root}>
-      <Grid container spacing={3} direction='row' justify='flex-start' alignItems='center'>
+
+    {/*
+    
+      <Grid container spacing={3} direction='row' justify='flex-start' alignItems='flex-top'>
         <Grid item  className={classes.active}>
           <div className={classes.filter} onClick={() => addFilter('lease-otb')}>
             <img border='' className={classes.img} src='https://storage.googleapis.com/leaseotb-images/LOTB-Logo.png'/>
@@ -89,21 +101,33 @@ const Landing = () => {
         </Grid>
         {isTag ? 
           <Grid item className={classes.clear}>
-            <div className={classes.filter} onClick={() => addFilter('clear')}>
-              <IconButton>
-                What
+            <div onClick={() => addFilter('clear')}>
+              <IconButton size='small'>
+                <CancelIcon color='secondary' fontSize='small'/>
               </IconButton>
             </div>
           </Grid>
         :
           null
         }
+        {isTag ?
+          <Grid container>
+            <div className={classes.indicator}>
+              <Typography variant='body1'>{tagChange(tag)}</Typography>
+            </div>
+          </Grid>
+          :
+          null
+        }
       </Grid>
+    
+    */}
+     
+  
       <Grid container direction='row' alignItems='center' className={classes.blogC} spacing={1}>
         <Grid item container direction='row' spacing={4}>
           {posts.map((obj) => {
-            for (let x = 0; x <= tags.length; x++){
-              if (tags[x] === obj.data.tag) {
+              if (!tag || tag === obj.data.tag) {
                 return (
                   <Grid key={obj.id} item xs={12} sm={6} md={6}>
                     <Paper className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
@@ -112,8 +136,6 @@ const Landing = () => {
                     </Paper>
                   </Grid>
               )}
-            }
-          
           })}
         </Grid>
       </Grid>

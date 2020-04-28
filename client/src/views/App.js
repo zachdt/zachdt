@@ -4,6 +4,8 @@ import Layout from './layout/Layout'
 import Routes from '../router/Routes'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
+import './App.css'
+
 const theme = createMuiTheme({
   palette: {
     primary: {

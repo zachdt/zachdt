@@ -1,7 +1,14 @@
 const styles = {
+  '@keyframes load': {
+    '0%': {
+      transform: 'rotate3d(0)'
+    },
+    '100%': {
+      transform: 'rotate3d(3, 2, 1, 43deg)'
+    }
+  },
   'route:empty': {
     background: 'none',
-    
   },
   root: {
   },
@@ -10,7 +17,8 @@ const styles = {
   },
   route: {
     backgroundColor: '#f5f5f5',
-    borderRadius: '1em'
+    borderRadius: '1em',
+    animation: 'loading .5s'
   },
 }
 

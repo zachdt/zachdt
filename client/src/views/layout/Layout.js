@@ -18,7 +18,7 @@ const Layout = (props) => {
       <div className={classes.page}>
         <BrowserRouter>
           <Grid container direction='row' >
-            <Grid item xs={12} sm={4} lg={4} container direction='column' alignItems='flex-start'>
+            <Grid item xs={12} sm={4} md={3} container direction='column' alignItems='flex-start'>
               <Grid item>
                 <Navigation />
               </Grid>
@@ -26,7 +26,7 @@ const Layout = (props) => {
                 <Footer />
               </Grid>
             </Grid>
-            <Grid item xs={12} sm={8} md={8} xl={8} className={classes.route}>
+            <Grid item xs={12} sm={8} md={9} className={classes.route}>
               {props.children}
             </Grid>
           </Grid>
