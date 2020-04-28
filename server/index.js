@@ -14,7 +14,7 @@ const app = express()
 //get all posts
 app.get('/api/', (req, res) => {
   console.log('--> GET req for all blog posts')
-  res.header("Access-Control-Allow-Origin", "http://zachdt.com")
+  res.header("Access-Control-Allow-Origin", "https://zachdt.com")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
   let postArr = []
@@ -35,7 +35,7 @@ app.get('/api/', (req, res) => {
 
 //get the most recent post
 app.get('/api/recent/', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://zachdt.com")
+  res.header("Access-Control-Allow-Origin", "https://zachdt.com")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
   console.log('--> GET req for most recent post')
@@ -59,9 +59,9 @@ app.get('/api/recent/', (req, res) => {
 
 //get a specific post
 app.get('/api/:path', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://zachdt.com")
+  res.header("Access-Control-Allow-Origin", "https://zachdt.com")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  
+
   console.log('--> GET req for post', req.params.path)
 
   db.collection('posts').doc(req.params.path).get()
