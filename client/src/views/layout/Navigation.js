@@ -50,7 +50,7 @@ const Navigation = () => {
             </Grid>
           </Grid>
         </div>
-        {link ? <Redirect push to='/'/> : null}
+        {link ? <Redirect push to='/blog'/> : null}
     </div>
 
   )

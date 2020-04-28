@@ -23,7 +23,8 @@ const Landing = () => {
 
   useEffect(() => {
     const getPosts = async () => {
-      fetch('/api/', {
+      console.log(process.env.REACT_APP_API_URL)
+      fetch(`${process.env.REACT_APP_API_URL}api/`, {
         method: "GET",
       })
       .then(res => res.json())
@@ -125,12 +126,13 @@ const Landing = () => {
      
   
       <Grid container direction='row' alignItems='center' className={classes.blogC} spacing={1}>
-        <Grid item container direction='row' spacing={4}>
+        <Typography variant='h4'></Typography>
+        <Grid item container direction='row' spacing={3}>
           {posts.map((obj) => {
               if (!tag || tag === obj.data.tag) {
                 return (
-                  <Grid key={obj.id} item xs={12} sm={6} md={6}>
-                    <Paper className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
+                  <Grid key={obj.id} item xs={12} sm={6} lg={4}>
+                    <Paper elevation={9} className={classes.paper} onClick={() => setLink(`/${obj.id}`)}>
                       <Typography variant='h6'>{obj.data.title}</Typography>
                       <Typography variant='body2'>{obj.data.date}</Typography>
                     </Paper>

@@ -18,7 +18,7 @@ const styles = {
     cursor: 'pointer',
   },
   blogC: {
-    marginTop: '1em'
+    marginTop: '0em'
   },
   active: {
   },
