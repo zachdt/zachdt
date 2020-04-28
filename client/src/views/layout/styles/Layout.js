@@ -11,6 +11,9 @@ const styles = {
     background: 'none',
   },
   root: {
+    maxWidth: '1800px',
+    float: 'none',
+    margin: '0 auto'
   },
   page: {
     padding: '2em'
