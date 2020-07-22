@@ -8,6 +8,7 @@ import {
   Snackbar,
   SnackbarContent
 } from '@material-ui/core'
+import {CopyToClipboard} from 'react-copy-to-clipboard'
 
 const Footer = () => {
   const [open, setOpen] = React.useState(false)
@@ -25,20 +26,22 @@ const Footer = () => {
       <Grid container direction='row' justify='center' alignItems='flex-start'>
         <Snackbar 
         open={open} 
-        autoHideDuration={5000}
+        autoHideDuration={2000}
         onClose={handleClose}
         >
           <div style={{backgroundColor: '#D44638', color: '#EEEEEE', borderRadius: '1em', marginTop: '5em', padding: '.8em', paddingTop: '.5em'}}>
-            <Typography variant='h6' color='inherit'>zachdt@gmail.com</Typography>
+            <Typography variant='h6' color='inherit'>'zachdt@gmail.com' copied</Typography>
           </div>
         </Snackbar>
         <Grid item>
-          <a onClick={handleClick} style={{textDecoration: 'none'}}>
-            <Typography variant='h6' color='textPrimary' style={{margin: '.5em'}}>email me</Typography>
-          </a>
+          <CopyToClipboard text='zachdt@gmail.com'>
+            <a onClick={handleClick} style={{textDecoration: 'none', cursor: 'grab'}}>
+              <Typography variant='h6' color='textPrimary' style={{margin: '.5em'}}>email me</Typography>
+            </a>
+          </CopyToClipboard>
         </Grid>
         <Grid item>
-          <Typography variant='h6' color='textPrimary' style={{margin: '.5em'}}>&copy;2020</Typography>
+          <Typography variant='h6' color='textPrimary' style={{margin: '.5em', cursor: 'default'}}>&copy;2020</Typography>
         </Grid>
       </Grid>
     </>

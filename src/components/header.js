@@ -28,12 +28,12 @@ export default () => {
       <Grid item>
         <Hidden mdDown>        
           <Link href={'/'}>
-            <Typography variant='h1' color={id} >zachary thielemann</Typography>
+            <Typography variant='h1' color={id} style={{cursor: 'default'}}>zachary thielemann</Typography>
           </Link>
         </Hidden>
         <Hidden lgUp>
           <Link href={'/'}>   
-            <Typography variant='h1' color={id} >zachdt</Typography>
+            <Typography variant='h1' color={id} style={{cursor: 'default'}}>zachdt</Typography>
           </Link>
         </Hidden>
       </Grid>
