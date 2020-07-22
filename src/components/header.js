@@ -15,19 +15,20 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 
 export default () => {
 
-  const [id, setId ] = useState('primary')
+  const [id, setId ] = useState('textPrimary')
 
   useEffect(() => {
   })
   return (
     <Grid container style={{
       padding: '0em',
-      backgroundColor: 'black'
+      backgroundColor: 'white',
+      padding: '.4em'
       }} direction='column' justify="center" alignItems='center'>
       <Grid item>
         <Hidden mdDown>        
           <Link href={'/'}>
-            <Typography variant='h1' color={id} >zach thielemann</Typography>
+            <Typography variant='h1' color={id} >zachary thielemann</Typography>
           </Link>
         </Hidden>
         <Hidden lgUp>

@@ -10,7 +10,7 @@ const LinkSet = [
   {
     name: 'github',
     profile: 'https://github.com/zachdt',
-    color: '#f5f5f5'
+    color: '#333'
   },
   {
     name: 'twitter',
@@ -48,7 +48,15 @@ const Links = () => {
       alignItems="center"
     >
       {LinkSet.map(link => (
-        <a key={link.name} href={link.profile} target='__blank'  style={{textDecoration: 'none', color: link.color, margin: '.5em'}}>
+        <a key={link.name} href={link.profile} target='__blank'  
+        style={{
+          textDecoration: 'none', 
+          color: link.color, 
+          backgroundColor: 'white', 
+          borderRadius: '1em', 
+          margin: '.5em', 
+          paddingLeft: '1em',
+          paddingRight: '1em'}}>
           <Typography variant='h3' color='inherit'>{link.name}</Typography>
         </a>
       ))}

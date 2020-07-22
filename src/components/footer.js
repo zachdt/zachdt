@@ -22,23 +22,23 @@ const Footer = () => {
 
   return (
     <>
-      <Grid container direction='row' justify='center' alignItems='baseline'>
+      <Grid container direction='row' justify='center' alignItems='flex-start'>
         <Snackbar 
         open={open} 
-        autoHideDuration={2000}
+        autoHideDuration={5000}
         onClose={handleClose}
         >
-          <div style={{backgroundColor: '#D44638', color: '#EEEEEE', borderRadius: '1em', marginTop: '5em', padding: '.8em'}}>
+          <div style={{backgroundColor: '#D44638', color: '#EEEEEE', borderRadius: '1em', marginTop: '5em', padding: '.8em', paddingTop: '.5em'}}>
             <Typography variant='h6' color='inherit'>zachdt@gmail.com</Typography>
           </div>
         </Snackbar>
         <Grid item>
           <a onClick={handleClick} style={{textDecoration: 'none'}}>
-            <Typography variant='h6' color='textPrimary' style={{margin: '1em'}}>email me</Typography>
+            <Typography variant='h6' color='textPrimary' style={{margin: '.5em'}}>email me</Typography>
           </a>
         </Grid>
         <Grid item>
-          <Typography variant='h6' color='textPrimary' style={{margin: '1em'}}>&copy;2020</Typography>
+          <Typography variant='h6' color='textPrimary' style={{margin: '.5em'}}>&copy;2020</Typography>
         </Grid>
       </Grid>
     </>
