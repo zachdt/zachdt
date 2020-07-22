@@ -8,17 +8,17 @@ const theme = createMuiTheme({
       main: '#fff',
     },
     secondary: {
-      main: '#757ce8'
+      main: '#00e676'
     },
     background: {
-      default: '#fff'
+      default: '#fffff'
     },
     text: {
-      secondary: '#aa00ff'
+      main: '#aa00ff'
     },
     error: {
-      main: '#00c853'
-    }
+      main: '#757ce8' 
+    },
   },
   typography: {
     fontFamily: 'Racing Sans One',
@@ -26,10 +26,14 @@ const theme = createMuiTheme({
       fontSize: 100,
     },
     h2: {
-      fontSize: 60
+      fontSize: 40
+    },
+    h6: {
+      fontWeight: 400,
     },
     body1: {
-      fontWeight: 500,
+      fontWeight: 400,
+      fontFamily: 'Open Sans'
     },
     p: {
       fontFamily: 'Open Sans'

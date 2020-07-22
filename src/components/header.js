@@ -1,28 +1,38 @@
 import Link from 'next/link'
-
+import React, {useState, useEffect} from 'react'
 import {
   Typography, 
   Grid, 
   Hidden,
-  IconButton
+  IconButton,
+  Box,
+  Container
 } from '@material-ui/core'
 
+import TwitterIcon from '@material-ui/icons/Twitter'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import GitHubIcon from '@material-ui/icons/GitHub'
 
 export default () => {
 
+  const [id, setId ] = useState('primary')
+
+  useEffect(() => {
+  })
   return (
     <Grid container style={{
-      padding: '2em'
-      }} direction='row' justify="flex-start" alignItems='center'>
-      <Grid item xs={7} md={9}>
-        <Hidden smDown>        
-          <Link href={'/'} style={{cursor: 'grab'}}>
-            <Typography variant='h1' color='primary'>zachary thielemann</Typography>
+      padding: '0em',
+      backgroundColor: 'black'
+      }} direction='column' justify="center" alignItems='center'>
+      <Grid item>
+        <Hidden mdDown>        
+          <Link href={'/'}>
+            <Typography variant='h1' color={id} >zach thielemann</Typography>
           </Link>
         </Hidden>
-        <Hidden mdUp>
-          <Link href={'/'} style={{cursor: 'grab'}}>   
-            <Typography variant='h1' color='primary'>zachdt</Typography>
+        <Hidden lgUp>
+          <Link href={'/'}>   
+            <Typography variant='h1' color={id} >zachdt</Typography>
           </Link>
         </Hidden>
       </Grid>
