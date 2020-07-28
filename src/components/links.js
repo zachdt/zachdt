@@ -27,6 +27,11 @@ const LinkSet = [
     profile: 'https://instagram.com/_zachdt',
     color: '#E1306C'
   },
+  {
+    name: 'soundcloud',
+    profile: 'https://soundcloud.com/zacharythielemann',
+    color: '#ff7700'
+  }
 ]
 
 const Links = () => {
