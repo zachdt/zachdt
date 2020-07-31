@@ -14,4 +14,16 @@ export default ({ title='zachary thielemann', description='problem -> product ->
     <meta property="og:description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Racing+Sans+One&display=swap" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174176625-1"></script>
+    <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-174176625-1');
+              `
+            }}
+          />
   </Head>
