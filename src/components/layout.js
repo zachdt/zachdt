@@ -17,8 +17,18 @@ import theme from './theme'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 
-export default (props) => (
-  <ThemeProvider theme={theme}>
+export default (props) => {
+  if (props.isLoad) {
+    return (
+      <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Head {...props} />
+      {props.children}
+    </ThemeProvider>
+    )
+  }
+  return (
+    <ThemeProvider theme={theme}>
     <CssBaseline />
     <Head {...props} />
     <Header/>
@@ -31,4 +41,6 @@ export default (props) => (
       <Footer/>
     </footer>
   </ThemeProvider>
-)
+  )
+
+}
