@@ -27,7 +27,7 @@ export default () => {
     return () => {
       clearInterval(timer)
     }
-  }, [fade])  
+  }, [fade])
 
   if (load < 100 ) return (
     <Layout isLoad>

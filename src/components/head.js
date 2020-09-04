@@ -1,7 +1,7 @@
 
 import Head from 'next/head'
 
-export default ({ title='zachary thielemann', description='problem -> product -> software' }) =>
+export default ({ title='zachary thielemann', description='nothing works' }) =>
   <Head>
     <meta charSet="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
