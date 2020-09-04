@@ -1,8 +1,8 @@
 
 # [zachdt.com](https://zachdt.com)
 
-## Greetings and welcome to zach thielemann's github
+## Welcome to Zach Thielemann's Github
 
 My website should include all relevant links and contact info.
  
-Moving to NYC in August 2020, looking for full time work as a Full Stack and/or Frontend SWE.  Contact me!
+Moving to NYC ASAP! looking for full time work as a Full Stack and/or Frontend SWE.  Contact me!
