@@ -39,7 +39,7 @@ export default () => {
   return (
     <Zoom in={false} timeout={ 0 }>
         <Layout>
-          <Grid container direction='row' justify="flex-start" alignItems='flex-start' style={{padding: '2.5em'}}>
+          <Grid container direction='row' justify="space-between" alignItems='flex-start' style={{padding: '2.5em'}}>
             <Grid item xs={12} md={6} lg={4} container direction='row' justify='flex-start' alignItems='center'
               style={{margin: '0', padding: '1em', borderColor: 'white', borderWidth: '.3em', borderStyle: 'groove', borderRadius: '1em 1em'}}
             >
@@ -53,11 +53,9 @@ export default () => {
                 </li>
               </ul>
           </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} md={5} lg={7}>
               <br/>
               <Typography variant='body1'>I perform several functions, including web development, smart contract engineering, product management, audio engineering, music production, DJing, and skating. </Typography>
-            </Grid>
-            <Grid item xs={12}>
               <br/>
               <Typography variant='body1'><strong>Always looking to assist novel projects!</strong></Typography>
             </Grid>
