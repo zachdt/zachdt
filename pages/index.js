@@ -59,7 +59,7 @@ export default () => {
             </Grid>
             <Grid item xs={12}>
               <br/>
-              <Typography variant='body1'><strong>Always looking to assist projects of any scope or topic in any way I can.</strong></Typography>
+              <Typography variant='body1'><strong>Always looking to assist novel projects!</strong></Typography>
             </Grid>
           </Grid>
         </Layout>
