@@ -6,11 +6,13 @@ import {
   Button,
 } from '@material-ui/core'
 
+import Email from './email'
+
 const LinkSet = [
   {
     name: 'github',
     profile: 'https://github.com/zachdt',
-    color: '#333'
+    color: 'black'
   },
   {
     name: 'twitter',
@@ -31,36 +33,44 @@ const LinkSet = [
     name: 'soundcloud',
     profile: 'https://soundcloud.com/zacharythielemann',
     color: '#ff7700'
-  }
+  },
 ]
 
 const Links = () => {
-    
   const [textColor, setColor] = useState('white')
 
-  const handleHover = () => {
-    color
-  }
   return ( 
     <Grid
       container
-      direction="column"
+      direction="row"
       justify="center"
-      alignItems="center"
+      alignItems="space-evenly"
+      style={{paddingBottom: '1em'}}
     >
       {LinkSet.map(link => (
         <a key={link.name} href={link.profile} target='__blank'  
         style={{
           textDecoration: 'none', 
-          color: link.color, 
-          backgroundColor: 'white', 
-          borderRadius: '1em', 
-          margin: '.5em', 
+          color: 'white', 
+          backgroundColor: link.color,
+          borderRadius: '1em',
+          margin: '1em .4em .4em .4em', 
           paddingLeft: '1em',
           paddingRight: '1em'}}>
           <Typography variant='h3' color='inherit'>{link.name}</Typography>
         </a>
       ))}
+      <a href='mailto:zachdt@gmail.com'  
+        style={{
+          textDecoration: 'none', 
+          color: 'black', 
+          backgroundColor: 'white',
+          borderRadius: '1em',
+          margin: '1em .4em .4em .4em', 
+          paddingLeft: '1em',
+          paddingRight: '1em'}}>
+          <Typography variant='h3' color='inherit'>email me</Typography>
+        </a>
     </Grid>
   )
 }

@@ -13,29 +13,36 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
-export default () => {
+import Footer from './email'
+import Links from './links'
 
-  const [id, setId ] = useState('textPrimary')
+
+export default (props) => {
 
   useEffect(() => {
   })
   return (
     <Grid container style={{
-      padding: '0em',
-      backgroundColor: 'white',
-      padding: '.4em'
-      }} direction='column' justify="center" alignItems='center'>
-      <Grid item>
-        <Hidden mdDown>        
-          <Link href={'/'}>
-            <Typography variant='h1' color={id} style={{cursor: 'default'}}>zachary thielemann</Typography>
-          </Link>
-        </Hidden>
-        <Hidden lgUp>
-          <Link href={'/'}>   
-            <Typography variant='h1' color={id} style={{cursor: 'default'}}>zachdt</Typography>
-          </Link>
-        </Hidden>
+      backgroundColor: '#002b36',
+      maxHeight: '100vh',
+      minHeight: '100vh',
+      padding: '1em'
+      }} direction='column' justify="flex-start" alignItems='space-between'>
+      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '.5em .5em 0 .5em', borderStyle: 'groove', borderRadius: '1em 1em 0 0', maxHeight: '8vh'}}>
+        <marquee behavior="slide" and direction="left" scrollamount='30'>
+          <Hidden smDown>
+            <Typography variant='h2' style={{cursor: 'default', marginLeft: '.5em'}}>zachary thielemann</Typography>
+          </Hidden>
+          <Hidden mdUp>
+            <Typography variant='h2' style={{cursor: 'default', marginLeft: '.5em'}}>zachdt</Typography>
+          </Hidden>
+        </marquee>
+      </Grid>
+      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '0 .5em 0 .5em', borderStyle: 'dashed', maxHeight: '80vh'}}>
+        {props.children}
+      </Grid>
+      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '0 .5em .5em .5em', borderStyle: 'solid', minHeight: '8vh', borderRadius: '0 0 1em 1em'}}>
+        <Links/>
       </Grid>
     </Grid>
   )

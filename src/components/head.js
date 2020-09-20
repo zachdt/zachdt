@@ -13,7 +13,7 @@ export default ({ title='zachary thielemann', description='nothing works' }) =>
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Racing+Sans+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap&family=Monofett&display=swap" rel="stylesheet" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174176625-1"></script>
     <script
             dangerouslySetInnerHTML={{

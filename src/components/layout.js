@@ -1,7 +1,6 @@
 
 import Head from './head'
 import Header from './header'
-import Footer from './footer'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 
@@ -21,26 +20,20 @@ export default (props) => {
   if (props.isLoad) {
     return (
       <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Head {...props} />
-      {props.children}
-    </ThemeProvider>
+        <CssBaseline />
+        <Head {...props} />
+        {props.children}
+      </ThemeProvider>
     )
   }
   return (
     <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <Head {...props} />
-    <Header/>
-    <main>
-      <div style={{backgroundColor: 'white', padding: '1em', paddingBottom: '2em'}}>
+      <CssBaseline />
+      <Head {...props} />
+      <Header>
         {props.children}
-      </div>
-    </main>
-    <footer style={{backgroundColor: 'white', width: '100%', position: 'static', bottom: '0'}}>
-      <Footer/>
-    </footer>
-  </ThemeProvider>
+      </Header>
+    </ThemeProvider>
   )
 
 }

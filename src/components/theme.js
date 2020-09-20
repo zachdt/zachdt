@@ -21,22 +21,26 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: 'Racing Sans One',
+    fontFamily: 'Monofett',
     h1: {
       fontSize: 100,
     },
     h2: {
       fontSize: 40
     },
+    h3: {
+      fontSize: 30
+    },
     h6: {
-      fontWeight: 400,
+      fontWeight: 300,
     },
     body1: {
       fontWeight: 400,
-      fontFamily: 'Open Sans'
+      fontFamily: 'Comfortaa'
     },
     body2: {
-      fontWeight: 300
+      fontWeight: 200,
+      fontFamily: 'Comfortaa'
     },
     p: {
       fontFamily: 'Open Sans'
