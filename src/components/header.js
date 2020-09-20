@@ -38,10 +38,10 @@ export default (props) => {
           </Hidden>
         </marquee>
       </Grid>
-      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '0 .5em 0 .5em', borderStyle: 'dashed', maxHeight: '80vh'}}>
+      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white white white lightgrey', borderWidth: '0 .5em 0 .5em', borderStyle: 'dashed', maxHeight: '80vh'}}>
         {props.children}
       </Grid>
-      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '0 .5em .5em .5em', borderStyle: 'solid', minHeight: '8vh', borderRadius: '0 0 1em 1em'}}>
+      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '0 .5em .5em .5em', borderStyle: 'inset', minHeight: '8vh', borderRadius: '0 0 1em 1em'}}>
         <Links/>
       </Grid>
     </Grid>
