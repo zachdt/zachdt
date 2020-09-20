@@ -39,11 +39,11 @@ export default () => {
   return (
     <Zoom in={false} timeout={ 0 }>
         <Layout>
-          <Grid container direction='row' justify="flex-start" alignItems='flex-start' style={{padding: '1.5em'}}>
+          <Grid container direction='row' justify="flex-start" alignItems='flex-start' style={{padding: '2.5em'}}>
             <Grid item xs={12} md={6} lg={4} container direction='row' justify='flex-start' alignItems='center'
-              style={{margin: '0 1em 1em 1em', padding: '.5em', borderColor: 'white', borderWidth: '.3em', borderStyle: 'groove', borderRadius: '1em 1em'}}
+              style={{margin: '0', padding: '1em', borderColor: 'white', borderWidth: '.3em', borderStyle: 'groove', borderRadius: '1em 1em'}}
             >
-              <Typography variant='h4' style={{marginLeft: '.5em'}}>Working on</Typography>
+              <Typography variant='h4' style={{}}>Working on</Typography>
               <ul>
                 <li>
                   <Typography variant='body1'>cofounder and tech lead - Lease on the Block (Affordable Housing Tech)</Typography>
