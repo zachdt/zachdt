@@ -24,10 +24,8 @@ export default (props) => {
   return (
     <Grid container style={{
       backgroundColor: '#002b36',
-      maxHeight: '100vh',
-      minHeight: '100vh',
       padding: '1em'
-      }} direction='column' justify="flex-start" alignItems='space-between'>
+      }} direction='row' justify="flex-start" alignItems='space-between'>
       <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '.5em .5em 0 .5em', borderStyle: 'groove', borderRadius: '1em 1em 0 0', maxHeight: '8vh'}}>
         <marquee behavior="slide" and direction="left" scrollamount='30'>
           <Hidden smDown>
@@ -38,7 +36,7 @@ export default (props) => {
           </Hidden>
         </marquee>
       </Grid>
-      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white white white lightgrey', borderWidth: '0 .5em 0 .5em', borderStyle: 'dashed', maxHeight: '80vh'}}>
+      <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white white white lightgrey', borderWidth: '0 .5em 0 .5em', borderStyle: 'dashed', minHeight: '80vh'}}>
         {props.children}
       </Grid>
       <Grid item xs={12} style={{backgroundColor: '#002b36', color: 'white', borderColor: 'white', borderWidth: '0 .5em .5em .5em', borderStyle: 'inset', minHeight: '8vh', borderRadius: '0 0 1em 1em'}}>
