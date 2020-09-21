@@ -47,6 +47,7 @@ export default () => {
               <Typography variant='body1'>cofounder and tech lead - Lease on the Block (Affordable Housing Tech)</Typography>
               <br/>
             <Typography variant='body1'>founder - Tir Research (Crypto Research)</Typography>
+            <br/>
           </Grid>
             <Grid item xs={12} md={5} lg={7}>
               <Typography variant='h4' style={{}}>What I do</Typography>
