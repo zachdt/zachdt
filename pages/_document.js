@@ -6,6 +6,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 //
 
 import {default as Meta} from '../src/components/head'
+
 export default class MyDocument extends Document {
 
   render () {
