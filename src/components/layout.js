@@ -30,9 +30,15 @@ export default (props) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head {...props} />
-      <Header>
-        {props.children}
-      </Header>
+      <div style={{      
+        margin: 'auto',
+        overflow: 'auto',
+        maxWidth: '800px'
+      }}>
+        <Header>
+          {props.children}
+        </Header>
+      </div>
     </ThemeProvider>
   )
 
