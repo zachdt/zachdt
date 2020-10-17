@@ -44,9 +44,9 @@ export default () => {
             >
               <Typography variant='h4' style={{}}>Working on</Typography>
               <br/>
-              <Typography variant='body1'>cofounder and tech lead - Lease on the Block (Affordable Housing Tech)</Typography>
+              <Typography variant='body1'>primitive.finance</Typography>
               <br/>
-            <Typography variant='body1'>founder - Tir Research (Crypto Research)</Typography>
+              <Typography variant='body1'>frontier.xyz</Typography>
             <br/>
           </Grid>
             <Grid item xs={12} md={5} lg={7}>
