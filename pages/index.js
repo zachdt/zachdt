@@ -44,11 +44,11 @@ export default () => {
             >
               <Typography variant='h4' style={{}}>Working on</Typography>
               <br/>
-              <Typography variant='h6'>primitive.finance</Typography>
+              <Typography variant='body1'><strong>primitive.finance</strong></Typography>
               <br/>
-              <Typography variant='h6'>leaseontheblock.care</Typography>
+              <Typography variant='body1'><strong>leaseontheblock.care</strong></Typography>
               <br/>
-              <Typography variant='h6'>frontier.xyz</Typography>
+              <Typography variant='body1'><strong>frontier.xyz</strong></Typography>
             <br/>
           </Grid>
             <Grid item xs={12} md={5} lg={7}>
