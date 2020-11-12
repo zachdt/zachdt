@@ -5,4 +5,4 @@
 
 My website should include all relevant links and contact info.
  
-Moving to NYC, looking for full time work!
+Moving to NYC or SF in January...
