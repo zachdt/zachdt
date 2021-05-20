@@ -46,9 +46,6 @@ export default () => {
               <br/>
               <Typography variant='body1'><strong>primitive.finance</strong></Typography>
               <br/>
-              <Typography variant='body1'><strong>leaseontheblock.care</strong></Typography>
-              <br/>
-              <Typography variant='body1'><strong>frontier.xyz</strong></Typography>
             <br/>
           </Grid>
             <Grid item xs={12} md={5} lg={7}>
