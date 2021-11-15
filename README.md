@@ -5,4 +5,4 @@
 
 My website should include all relevant links and contact info.
  
-Moving to NYC summer 2021!
+Living in NYC, frequent patron of LA/Chicago/SF.
