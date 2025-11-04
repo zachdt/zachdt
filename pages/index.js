@@ -43,16 +43,15 @@ export default () => {
             >
               <Typography variant='h4' style={{}}>Working on</Typography>
               <br/>
-              <Typography variant='body1'><strong>primitive.finance</strong></Typography>
+              <Typography variant='body1'><strong>something new...</strong></Typography>
               <br/>
             <br/>
           </Grid>
             <Grid item xs={12} md={5} lg={7}>
               <Typography variant='h4' style={{}}>What I do</Typography>
               <br/>
-              <Typography variant='body1'>Web development, smart contract engineering, product management, audio engineering, music production, DJing, and skating. </Typography>
+              <Typography variant='body1'>web development, smart contract engineering, product management, and music stuff </Typography>
               <br/>
-              <Typography variant='body1'><strong>Always looking to assist novel projects!</strong></Typography>
             </Grid>
           </Grid>
         </Layout>
