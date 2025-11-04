@@ -4,7 +4,6 @@ import Layout from '../src/components/layout'
 import Links from '../src/components/links'
 import {ThemeProvider} from '@material-ui/core/styles'
 
-import '../src/sentry'
 import { useEffect, useState } from 'react'
 
 
