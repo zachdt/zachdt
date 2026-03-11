@@ -1,8 +1,6 @@
 
 # [zachdt.com](https://zachdt.com)
 
-## Welcome to Zach Thielemann's Github
-
-My website should include all relevant links and contact info.
+## Welcome to Zachary Davis Thielemann's Github
  
 Living in NYC, frequent patron of LA/Chicago/SF.
